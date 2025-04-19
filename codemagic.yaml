@@ -6,7 +6,9 @@ workflows:
       vars:
         PACKAGE_NAME: "com.polarize"
     scripts:
-      - echo "Building Polarize APK"
+      - echo "✅ Giving gradlew permission"
+      - chmod +x ./gradlew
+      - echo "🚧 Building Polarize APK"
       - ./gradlew assembleDebug
     artifacts:
       - app/build/outputs/**/*.apk
