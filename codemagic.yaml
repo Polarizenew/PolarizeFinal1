@@ -1,0 +1,12 @@
+workflows:
+  android-debug:
+    name: Build Debug APK
+    max_build_duration: 10
+    environment:
+      vars:
+        PACKAGE_NAME: "com.polarize"
+    scripts:
+      - echo "Building Polarize APK"
+      - ./gradlew assembleDebug
+    artifacts:
+      - app/build/outputs/**/*.apk
