@@ -1,15 +1,18 @@
 workflows:
-  android-debug:
+  android-workflow:
     name: Build Debug APK
-    max_build_duration: 10
+    max_build_duration: 30
     environment:
+      android_signing:
+        - keystore_reference: null
       vars:
         PACKAGE_NAME: "com.polarize"
     scripts:
-      - echo "✅ Setting gradlew permission"
-      - chmod +x ./gradlew
-      - echo "🚧 Running build"
-      - ./gradlew assembleDebug
+      - name: Give gradlew execute permission
+        script: chmod +x ./gradlew
+      - name: Build Debug APK
+        script: ./gradlew assembleDebug
     artifacts:
       - app/build/outputs/**/*.apk
+
 
