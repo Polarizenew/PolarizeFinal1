@@ -5,8 +5,6 @@ workflows:
     environment:
       vars:
         PACKAGE_NAME: "com.polarize"
-      android_signing:
-        - keystore_reference: null
     scripts:
       - name: "Give gradlew execute permission"
         script: |
